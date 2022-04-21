@@ -1,15 +1,43 @@
-# Compute@Edge starter kit for Flight Path
+# Example of using GraphQL in Fastly Compute@Edge
 
-Flight Path is a lightweight and minimal routing layer for C@E apps.
+## What is GraphQL?
 
-For more information, see the [Flight Path Docs](https://flight-path.edgecompute.app/)
+GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
+[Find out more about GraphQL](https://graphql.org/)
 
-## Understanding the code
+## Why run GraphQL at the edge?
 
-The code in `src/index.js` creates a `Router` object and registers routes.
+Running GraphQL at the edge allows you to move the processing as close to your users as possible and cache any requests sent to the origin to improve speed and reduce origin load.
 
-The template uses webpack to bundle `index.js` and its imports into a single JS file, `bin/index.js`, which is then wrapped into a `.wasm` file, `bin/index.wasm` using the `js-compute-runtime` CLI tool bundled with the `@fastly/js-compute` npm package, and bundled into a `.tar.gz` file ready for deployment to Compute@Edge.
+### Trying it out
 
-## Security issues
+Try getting a list of all users with the query below
 
-Please see our [SECURITY.md](SECURITY.md) for guidance on reporting security-related issues.
+```
+query {
+  users {
+    id
+    name
+    email
+    address {
+      city
+    }
+    company {
+      name
+    }
+  }
+}
+```
+
+Or get a list of all posts with this query
+
+```
+query {
+  posts {
+    id
+    title
+    userId,
+    body
+  }
+}
+```
