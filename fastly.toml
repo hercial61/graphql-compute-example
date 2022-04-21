@@ -1,0 +1,13 @@
+# This file describes a Fastly Compute@Edge package. To learn more visit:
+# https://developer.fastly.com/reference/fastly-toml/
+
+authors = ["will@fastly.com"]
+description = "An example of using GraphQL inside Fastly Compute@Edge"
+language = "javascript"
+manifest_version = 2
+name = "DevHub-GraphQL-Demo"
+service_id = "6Vn4tQbn8d3vvhDoQgwzcj"
+
+[local_server.backends]
+    [local_server.backends.my_api]
+        url = "https://jsonplaceholder.typicode.com"

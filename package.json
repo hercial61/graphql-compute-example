@@ -1,0 +1,36 @@
+{
+  "name": "compute-starter-kit-javascript-default",
+  "version": "0.2.0",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/williamoverton/compute-starter-kit-javascript-flightpath.git"
+  },
+  "author": "oss@fastly.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/williamoverton/compute-starter-kit-javascript-flightpath/issues"
+  },
+  "homepage": "https://flight-path.edgecompute.app/",
+  "engines": {
+    "node": "^16"
+  },
+  "devDependencies": {
+    "core-js": "^3.19.1",
+    "nodemon": "^2.0.14",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.61.0",
+    "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "@fastly/js-compute": "^0.2.4",
+    "flight-path": "^1.0.13",
+    "graphql-helix": "^1.12.0"
+  },
+  "scripts": {
+    "prebuild": "webpack",
+    "build": "js-compute-runtime --skip-pkg bin/index.js bin/main.wasm",
+    "deploy": "npm run build && fastly compute deploy",
+    "dev": "nodemon --watch src --exec \"npm run build && fastly compute serve --skip-build\""
+  }
+}
