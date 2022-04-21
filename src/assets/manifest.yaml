@@ -2,6 +2,8 @@
 schemaVersion: 1
 title: GraphQL
 id: graphql
+repo: https://github.com/fastly/graphql-compute-example
+editUrl: https://github.com/fastly/graphql-compute-example
 image:
   href: /logo.png
   alt: GraphQL
