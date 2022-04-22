@@ -71,9 +71,15 @@ export const schema = new GraphQLSchema({
           })
         ),
         resolve: async () => {
+          // Force caching for 1 minute.
+          let cacheOverride = new CacheOverride("override", { ttl: 60 });
+
           const req = await fetch(
             "https://jsonplaceholder.typicode.com/users",
-            { backend: "my_api" }
+            { 
+              backend: "my_api",
+              cacheOverride
+            }
           );
 
           return req.json();

@@ -26,6 +26,22 @@ GraphQL is a query language for APIs and a runtime for fulfilling those queries 
 
 Running GraphQL at the edge allows you to move the processing as close to your users as possible and cache any requests sent to the origin to improve speed and reduce origin load.
 
+### How does it work?
+
+This is a Javascript app running inside of Fastly using the [GraphQL Helix](https://github.com/contra/graphql-helix) npm module to process and resolve incoming queries.
+Data is pulled from a [fake api data source](https://jsonplaceholder.typicode.com).
+
+#### Defining Data sources
+
+GraphQL is configured by adding queries and mutations to the [schema file](https://github.com/fastly/graphql-compute-example/blob/main/src/schema.js).
+This is useful as one GraphQL service can pull data from many different APIs.
+
+#### Caching
+
+Normally it is very difficult to achieve good caching when using GraphQL because all requests are POST requests. 
+By moving the processing of the GraphQL requests to the edge we can make use of Fastly's caching mechanisms to cache requests outbound to APIs.
+This would drastically lower the load on end APIs as when queries are processed they can be resolved with cached data.
+
 ### Trying it out
 
 Try getting a list of all users with the query below
