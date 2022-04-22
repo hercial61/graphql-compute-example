@@ -42,6 +42,8 @@ Normally it is very difficult to achieve good caching when using GraphQL because
 By moving the processing of the GraphQL requests to the edge we can make use of Fastly's caching mechanisms to cache requests outbound to APIs.
 This would drastically lower the load on end APIs as when queries are processed they can be resolved with cached data.
 
+An example of caching requests to origin can be found in the example [here](https://github.com/fastly/graphql-compute-example/blob/main/src/schema.js#L75).
+
 ### Trying it out
 
 Try getting a list of all users with the query below
