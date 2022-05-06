@@ -6,7 +6,7 @@ description = "An example of using GraphQL inside Fastly Compute@Edge"
 language = "javascript"
 manifest_version = 2
 name = "DevHub-GraphQL-Demo"
-service_id = "6Vn4tQbn8d3vvhDoQgwzcj"
+service_id = ""
 
 [local_server.backends]
     [local_server.backends.my_api]
